@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const DOMAIN = "https://barbs-bites-cafe.netlify.app/";
+const DOMAIN = "https://barbs-bites-cafe-v2.netlify.app/";
 
 const PAGES = [
   { url: "/", priority: "1.0", changefreq: "daily" },
