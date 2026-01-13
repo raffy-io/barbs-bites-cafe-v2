@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <load
+      src="./src/partials/seo.html"
+      title="Barb's Bites Cafe - Filipino desserts made with love"
+      ogTitle="Barb's Bites Cafe - Filipino desserts made with love"
+      description="Filipino desserts in San Narciso, Zambales. Homemade Baked Kakanin, Ube Halaya, and Cassava Flan – freshly made by Barb's Bites Cafe."
+      ogImage="/images/seo/ogImage.jpg"
+      path="/"
+    />
+  </head>
+  <body class="grid layout-grid">
+    <header>
+      <load src="./src/partials/main-nav.html" color="text-white" />
+    </header>
+    <main>
+      <section
+        id="section-hero"
+        class="hero"
+        x-data="{ shown: false,homepage: $store.homepage }"
+        x-intersect="shown = true"
+      >
+        <div class="hero__image">
+          <img :src="homepage.image" :alt="homepage.imageAlt" />
+        </div>
+        <div class="hero__overlay">&nbsp;</div>
+        <div
+          class="hero__details"
+          x-show="shown"
+          x-transition.opacity.duration.1200ms
+        >
+          <h1 x-text="homepage.heading" class="mb-sm"></h1>
+          <h6 x-text="homepage.subheading" class="mb-md"></h6>
+          <a href="/products/" class="btn btn-link">see menu</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <load src="./src/partials/footer.html" />
+    </footer>
+    <script type="module" src="./src/assets/js/main.js"></script>
+  </body>
+</html>

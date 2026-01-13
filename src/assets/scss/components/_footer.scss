@@ -1,0 +1,16 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-tertiary);
+  color: var(--text-white);
+  padding: var(--sm);
+  p {
+    text-transform: capitalize;
+    font-weight: 200;
+  }
+}

@@ -1,0 +1,42 @@
+.btn {
+  display: inline-block;
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &-link {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding-left: var(--md);
+    padding-right: var(--md);
+    padding-top: var(--xs);
+    padding-bottom: var(--xs);
+    transition: var(--transition);
+
+    &:link,
+    &:visited {
+      background: linear-gradient(
+        120deg,
+        var(--color-primary) 0%,
+        var(--color-primary) 50%,
+        var(--color-secondary) 50%
+      );
+      background-size: 220%;
+      color: var(--text-white);
+    }
+
+    &:hover {
+      background-position: 100%;
+      border: 1px solid var(--color-primary-dark);
+      box-shadow: var(--shadow-dark);
+    }
+
+    &:active {
+      box-shadow: var(--shadow-light);
+    }
+  }
+}

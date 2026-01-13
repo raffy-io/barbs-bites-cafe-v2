@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--xs);
+
+  button {
+    border: none;
+    background: none;
+    padding-left: var(--sm);
+    padding-right: var(--sm);
+    padding-top: var(--xs);
+    padding-bottom: var(--xs);
+    background-color: var(--color-tertiary);
+    border-radius: 2px;
+    color: var(--text-white);
+    cursor: pointer;
+
+    &:disabled {
+      background-color: #f7f7f7;
+      color: var(--text-black);
+      cursor: not-allowed;
+    }
+  }
+}

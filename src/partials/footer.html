@@ -1,0 +1,8 @@
+<div
+  x-data="{ shown: false, date: new Date().getFullYear() }"
+  x-intersect="shown = true"
+>
+  <div class="footer" x-show="shown" x-transition.opacity.duration.1500ms>
+    <p>satisfy your cravings @<span x-text="date"></span></p>
+  </div>
+</div>

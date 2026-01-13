@@ -1,0 +1,9 @@
+@use "../abstracts/mixins" as *;
+
+.container {
+  padding: var(--8xl);
+  @include respond(tab-land) {
+    padding-left: var(--md);
+    padding-right: var(--md);
+  }
+}

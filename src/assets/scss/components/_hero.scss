@@ -1,0 +1,67 @@
+@use "../abstracts/mixins" as *;
+
+.hero {
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+
+  @include respond(phone) {
+    padding: var(--xs);
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 150;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.3)
+    );
+  }
+
+  &__details {
+    position: relative;
+    z-index: 200;
+    color: var(--text-white);
+    width: 50%;
+    text-align: center;
+
+    h1 {
+      font-weight: 900;
+    }
+
+    h6 {
+      font-weight: 300;
+    }
+
+    @include respond(tab-land) {
+      width: 65%;
+    }
+    @include respond(tab-port) {
+      width: 70%;
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}

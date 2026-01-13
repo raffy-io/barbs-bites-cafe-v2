@@ -1,0 +1,64 @@
+.mb-xs {
+  margin-bottom: 0.8rem !important;
+}
+
+.mb-sm {
+  margin-bottom: 1.6rem !important;
+}
+
+.mb-md {
+  margin-bottom: 2.4rem !important;
+}
+
+.mb-lg {
+  margin-bottom: 3.2rem !important;
+}
+
+.mb-xl {
+  margin-bottom: 4rem !important;
+}
+
+.h-full {
+  height: 100% !important;
+}
+
+.h-vh {
+  height: 100vh !important;
+}
+
+.h-dvh {
+  height: 100dvh !important;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-black {
+  color: var(--text-black) !important;
+}
+.text-white {
+  color: var(--text-white) !important;
+}
+
+.active-link {
+  border-bottom: 1px solid var(--color-primary) !important;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+.title {
+  font-weight: 900;
+}

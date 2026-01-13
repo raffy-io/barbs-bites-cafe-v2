@@ -1,0 +1,34 @@
+<div
+  x-data="{ shown: false, currentPath: window.location.pathname }"
+  x-intersect="shown = true"
+>
+  <nav
+    class="nav"
+    class="footer"
+    x-show="shown"
+    x-transition.opacity.duration.1500ms
+  >
+    <h6 class="nav__logo"><a href="/">barb's bites cafe</a></h6>
+    <ul class="nav__list">
+      <li class="nav__list-item">
+        <a
+          href="/"
+          class="{=$color}"
+          :class="{'active-link':currentPath === '/'}"
+          >home</a
+        >
+      </li>
+      <li class="nav__list-item">
+        <a
+          href="/products/"
+          class="{=$color}"
+          :class="{'active-link':currentPath.includes('/products')}"
+          >products</a
+        >
+      </li>
+      <li class="nav__list-item--order">
+        <a class="rounded-xs" href="/">order now</a>
+      </li>
+    </ul>
+  </nav>
+</div>

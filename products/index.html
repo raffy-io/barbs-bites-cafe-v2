@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <load
+      src="../src/partials/seo.html"
+      title="Barb's Bites Cafe - Filipino desserts made with love"
+      ogTitle="Barb's Bites Cafe - Filipino desserts made with love"
+      description="Filipino desserts in San Narciso, Zambales. Homemade Baked Kakanin, Ube Halaya, and Cassava Flan – freshly made by Barb's Bites Cafe."
+      ogImage="/images/seo/ogImage.jpg"
+      path="/products/"
+    />
+  </head>
+
+  <body>
+    <header>
+      <load src="../src/partials/main-nav.html" color="text-black" />
+    </header>
+    <main>
+      <section class="container" x-data="paginate($store.products,3)">
+        <div x-data="{ shown: false}" x-intersect="shown = true">
+          <h2
+            class="mb-md text-center capitalize title"
+            x-show="shown"
+            x-transition.opacity.duration.1200ms
+          >
+            our humble menu
+          </h2>
+          <div
+            class="grid products-grid w-full h-full mb-lg"
+            x-show="shown"
+            x-transition.opacity.duration.1200ms
+          >
+            <template x-for="product in pagedItems">
+              <load
+                src="../src/partials/card.html"
+                name="product.name"
+                image="product.image"
+                imageAlt="product.imageAlt"
+                description="product.description"
+              />
+            </template>
+          </div>
+        </div>
+
+        <load src="../src/partials/pagination-link.html" />
+      </section>
+    </main>
+    <footer>
+      <load src="../src/partials/footer.html" />
+    </footer>
+    <script type="module" src="../src/assets/js/main.js"></script>
+  </body>
+</html>

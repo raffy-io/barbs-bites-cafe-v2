@@ -1,0 +1,16 @@
+<div x-data="{ shown: false}" x-intersect="shown = true">
+  <div class="pagination" x-show="shown" x-transition.opacity.duration.1200ms>
+    <button @click="previousPage" :disabled="currentPage === 1">
+      Previous
+    </button>
+
+    <span class="pagination__page"
+      >Page <span x-text="currentPage"></span> of
+      <span x-text="totalPages"></span
+    ></span>
+
+    <button @click="nextPage" :disabled="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>
