@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <load
+      src="../src/partials/seo.html"
+      title="Barb's Bites Cafe - Filipino desserts made with love"
+      ogTitle="Barb's Bites Cafe - Filipino desserts made with love"
+      description="Filipino desserts in San Narciso, Zambales. Homemade Baked Kakanin, Ube Halaya, and Cassava Flan – freshly made by Barb's Bites Cafe."
+      ogImage="/images/seo/ogImage.jpg"
+      path="/product/"
+    />
+  </head>
+
+  <body>
+    <header>
+      <load src="../src/partials/main-nav.html" color="text-black" />
+      <load src="../src/partials/mobile-nav.html" />
+    </header>
+    <main>
+      <section x-data="productDetail" class="container product">
+        <div x-data="{ shown: false }" x-intersect="shown = true">
+          <div x-show="shown" x-transition.opacity.duration.1200ms>
+            <img :src="product.image" alt="product.imageAlt" class="mb-md" />
+            <h6 x-text="product.name" class="mb-sm"></h6>
+            <p x-text="product.description" class="mb-md"></p>
+            <!-- prices -->
+            <div class="product__prices mb-xl">
+              <template
+                x-for="[tier, price] in Object.entries(product.prices)"
+                :key="tier"
+              >
+                <template x-if="price > 0">
+                  <p class="capitalize">
+                    <span x-text="tier"></span>: &#x20B1;<span
+                      x-text="price"
+                    ></span>
+                  </p>
+                </template>
+              </template>
+            </div>
+            <!-- end prices -->
+            <!-- btn-links -->
+            <div class="product__btn">
+              <a href="/products/" class="product__btn--back capitalize"
+                >back</a
+              >
+              <a href="/" class="product__btn--order capitalize">order now</a>
+            </div>
+            <!-- end btn-links -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <load src="../src/partials/footer.html" />
+    </footer>
+    <script type="module" src="../src/assets/js/main.js"></script>
+  </body>
+</html>

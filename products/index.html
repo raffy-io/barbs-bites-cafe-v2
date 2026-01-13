@@ -16,10 +16,19 @@
   <body>
     <header>
       <load src="../src/partials/main-nav.html" color="text-black" />
+      <load src="../src/partials/mobile-nav.html" />
     </header>
     <main>
-      <section class="container" x-data="paginate($store.products,3)">
-        <div x-data="{ shown: false}" x-intersect="shown = true">
+      <section
+        id="section-products"
+        class="container"
+        x-data="paginate($store.products,3)"
+      >
+        <div
+          x-data="{ shown: false}"
+          x-intersect="shown = true"
+          x-ref="results"
+        >
           <h2
             class="mb-md text-center capitalize title"
             x-show="shown"
@@ -32,19 +41,20 @@
             x-show="shown"
             x-transition.opacity.duration.1200ms
           >
-            <template x-for="product in pagedItems">
+            <template x-for="product in pagedItems" :key="product.slug">
               <load
                 src="../src/partials/card.html"
                 name="product.name"
                 image="product.image"
                 imageAlt="product.imageAlt"
                 description="product.description"
+                slug="product.slug"
               />
             </template>
           </div>
         </div>
 
-        <load src="../src/partials/pagination-link.html" />
+        <load src="../src/partials/pagination-link.html" ref="results" />
       </section>
     </main>
     <footer>

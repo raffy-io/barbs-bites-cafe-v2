@@ -2,12 +2,7 @@
   x-data="{ shown: false, currentPath: window.location.pathname }"
   x-intersect="shown = true"
 >
-  <nav
-    class="nav"
-    class="footer"
-    x-show="shown"
-    x-transition.opacity.duration.1500ms
-  >
+  <nav class="nav" x-show="shown" x-transition.opacity.duration.1500ms>
     <h6 class="nav__logo"><a href="/">barb's bites cafe</a></h6>
     <ul class="nav__list">
       <li class="nav__list-item">

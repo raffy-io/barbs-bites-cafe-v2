@@ -1,0 +1,83 @@
+@use "../abstracts/mixins" as *;
+.product {
+  max-width: 60%;
+  margin: 0 auto;
+
+  img {
+    height: 50rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include respond(phone) {
+      height: 35rem;
+    }
+  }
+  p {
+    color: var(--text-gray);
+  }
+
+  @include respond(tab-land) {
+    max-width: 80%;
+  }
+
+  @include respond(phone) {
+    max-width: 100%;
+  }
+
+  &__prices {
+    display: flex;
+    gap: var(--md);
+
+    p {
+      color: var(--text-black);
+      font-weight: 500;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      padding-top: var(--xs);
+      padding-bottom: var(--xs);
+      padding-left: var(--md);
+      padding-right: var(--md);
+      font-size: var(--sm);
+      transition: var(--transition);
+    }
+
+    &--back {
+      background-color: #c0c0c0;
+      color: var(--text-black);
+    }
+
+    &--order {
+      &:link,
+      &:visited {
+        background: linear-gradient(
+          120deg,
+          var(--color-primary) 0%,
+          var(--color-primary) 50%,
+          var(--color-secondary) 50%
+        );
+        background-size: 220%;
+        color: var(--text-white);
+      }
+
+      &:hover {
+        background-position: 100%;
+        border: 1px solid var(--color-primary-dark);
+        box-shadow: var(--shadow-dark);
+      }
+
+      &:active {
+        box-shadow: var(--shadow-light);
+      }
+    }
+  }
+}

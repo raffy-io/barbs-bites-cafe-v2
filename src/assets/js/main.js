@@ -29,10 +29,18 @@ document.addEventListener("alpine:init", () => {
 
     nextPage() {
       if (this.currentPage < this.totalPages) this.currentPage++;
+      window.scrollTo({
+        top: 0,
+        left: 0,
+      });
     },
 
     previousPage() {
       if (this.currentPage > 1) this.currentPage--;
+      window.scrollTo({
+        top: 0,
+        left: 0,
+      });
     },
 
     goToPage(page) {

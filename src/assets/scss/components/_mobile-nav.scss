@@ -1,0 +1,156 @@
+@use "../abstracts/mixins" as *;
+
+.mobile-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sm);
+  /* 1. Semi-transparent background */
+  background: rgba(255, 255, 255, 0.2);
+  /* 2. Apply the blur effect to the background behind the element */
+  backdrop-filter: blur(10px);
+  /* Fallback for older browsers (optional but recommended) */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-light);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: var(--transition);
+
+  @include respond(phone-min) {
+    display: none;
+  }
+
+  &__logo {
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--color-primary);
+      text-transform: capitalize;
+    }
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    svg {
+      width: var(--lg);
+      height: var(--lg); // 24px
+    }
+  }
+
+  &__list-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    color: var(--text-black);
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+      120deg,
+      rgba(245, 242, 237, 1) 0%,
+      rgba(245, 242, 237, 1) 50%,
+      #f7f7f7 50%
+    );
+    padding: var(--sm);
+
+    &-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: var(--xs);
+      padding-right: var(--xs);
+
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        svg {
+          width: var(--lg);
+          height: var(--lg); // 24px
+        }
+      }
+    }
+  }
+
+  &__list {
+    @include absCenter;
+    list-style: none;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    gap: var(--xs);
+
+    &-item {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        text-transform: capitalize;
+        padding-left: var(--sm);
+        padding-right: var(--sm);
+        padding-top: var(--xs);
+        padding-bottom: var(--xs);
+        transition: var(--transition);
+        border: 1px solid transparent;
+        font-size: var(--sm);
+      }
+
+      a:link,
+      a:visited {
+        color: var(--text-black);
+      }
+      a:hover,
+      a:active {
+        color: var(--color-primary) !important;
+      }
+
+      &--order {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          text-transform: capitalize;
+          padding-left: var(--md);
+          padding-right: var(--md);
+          padding-top: var(--xs);
+          padding-bottom: var(--xs);
+          transition: var(--transition);
+          font-size: var(--sm);
+          margin-top: var(--lg);
+        }
+
+        a:link,
+        a:visited {
+          background: linear-gradient(
+            120deg,
+            var(--color-primary) 0%,
+            var(--color-primary) 50%,
+            var(--color-secondary) 50%
+          );
+          background-size: 220%;
+          color: var(--text-white);
+        }
+
+        a:hover {
+          background-position: 100%;
+          border: 1px solid var(--color-primary-dark);
+          box-shadow: var(--shadow-dark);
+        }
+
+        a:active {
+          box-shadow: var(--shadow-light);
+        }
+      }
+    }
+  }
+}

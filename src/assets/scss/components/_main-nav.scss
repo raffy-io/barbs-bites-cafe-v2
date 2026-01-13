@@ -21,9 +21,11 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  transition: var(--transition);
 
   @include respond(phone) {
     padding: var(--sm);
+    display: none;
   }
 
   &__logo {

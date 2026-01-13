@@ -3,6 +3,8 @@
   <div class="card__details">
     <h6 x-text="{=$name}" class="mb-sm"></h6>
     <p x-text="{=$description}" class="mb-md"></p>
-    <a href="/" class="btn btn-link capitalize">learn more</a>
+    <a :href="'/product/?item=' + {=$slug}" class="btn btn-link capitalize"
+      >learn more</a
+    >
   </div>
 </div>

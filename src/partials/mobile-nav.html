@@ -1,0 +1,75 @@
+<div
+  x-data="{ shown: false, currentPath: window.location.pathname }"
+  x-intersect="shown = true"
+>
+  <nav
+    class="mobile-nav"
+    x-show="true"
+    x-transition.opacity.duration.1500ms
+    x-data="{ open: false }"
+  >
+    <h6 class="mobile-nav__logo"><a href="/">barb's bites cafe</a></h6>
+    <button @click="open = ! open">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="#d98c00"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+    </button>
+    <div
+      class="mobile-nav__list-box"
+      class="mobile-nav__list"
+      x-show="open"
+      x-transition.opacity.duration.500ms
+    >
+      <div class="mobile-nav__list-box-nav">
+        <h6 class="mobile-nav__logo"><a href="/">barb's bites cafe</a></h6>
+        <button @click="open = ! open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="#d98c00"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-nav__list">
+        <li class="mobile-nav__list-item">
+          <a
+            href="/"
+            class="{=$color}"
+            :class="{'active-link':currentPath === '/'}"
+            >home</a
+          >
+        </li>
+        <li class="mobile-nav__list-item">
+          <a
+            href="/products/"
+            class="{=$color}"
+            :class="{'active-link':currentPath.includes('/products')}"
+            >products</a
+          >
+        </li>
+        <li class="mobile-nav__list-item--order">
+          <a class="rounded-xs" href="/">order now</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
