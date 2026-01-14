@@ -22,9 +22,14 @@
       <section
         id="section-order"
         class="container orders grid orders-grid"
-        x-data="{products:$store.products}"
+        x-data="{ shown: false,products:$store.products}"
+        x-intersect="shown = true"
       >
-        <div class="orders__details">
+        <div
+          class="orders__details"
+          x-show="shown"
+          x-transition.opacity.duration.1200ms
+        >
           <h4 class="capitalize mb-lg">you can contact us thru:</h4>
           <!-- options -->
           <div class="orders__details-options mb-lg">
@@ -64,7 +69,12 @@
             </template>
           </div>
         </div>
-        <div class="orders__cart" x-data="orders">
+        <div
+          class="orders__cart"
+          x-data="orders"
+          x-show="shown"
+          x-transition.opacity.duration.1500ms
+        >
           <h4 class="capitalize mb-lg">or fill up this order form:</h4>
           <form class="orders__form" @submit.prevent="submit">
             <div class="orders__form-group mb-xl">
