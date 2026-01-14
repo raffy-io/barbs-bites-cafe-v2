@@ -6,6 +6,10 @@
     width: 100%;
     padding: var(--md);
 
+    @include respond(phone) {
+      padding: 0;
+    }
+
     &-options {
       p {
         display: flex;
@@ -62,6 +66,10 @@
     height: 100%;
     width: 100%;
     padding: var(--md);
+
+    @include respond(phone) {
+      padding: 0;
+    }
   }
 
   &__form {
