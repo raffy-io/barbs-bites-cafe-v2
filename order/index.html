@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <load
+      src="../src/partials/seo.html"
+      title="Barb's Bites Cafe - Filipino desserts made with love"
+      ogTitle="Barb's Bites Cafe - Filipino desserts made with love"
+      description="Filipino desserts in San Narciso, Zambales. Homemade Baked Kakanin, Ube Halaya, and Cassava Flan – freshly made by Barb's Bites Cafe."
+      ogImage="/images/seo/ogImage.jpg"
+      path="/order/"
+    />
+  </head>
+
+  <body>
+    <header>
+      <load src="../src/partials/main-nav.html" color="text-black" />
+      <load src="../src/partials/mobile-nav.html" />
+    </header>
+    <main>
+      <section
+        id="section-order"
+        class="container orders grid orders-grid"
+        x-data="{products:$store.products}"
+      >
+        <div class="orders__details">
+          <h4 class="capitalize mb-lg">you can contact us thru:</h4>
+          <!-- options -->
+          <div class="orders__details-options mb-lg">
+            <p class="capitalize mb-xs">
+              <span class="orders-link-label">mobile:</span>
+              <span
+                ><a
+                  class="orders-link"
+                  class
+                  href="tel:09701845112"
+                  target="_blank"
+                  >097018451122</a
+                ></span
+              >
+            </p>
+            <p class="capitalize">
+              <span class="orders-link-label"> facebook: </span>
+              <span
+                ><a
+                  class="orders-link"
+                  href="https://www.facebook.com/profile.php?id=100030102572893"
+                  target="_blank"
+                  >barb's bites cafe</a
+                ></span
+              >
+            </p>
+          </div>
+          <!-- gallery -->
+          <div
+            class="orders__gallery"
+            x-data="{ products: $store.products.slice(0,8)}"
+          >
+            <template x-for="product in products" :key="product.slug">
+              <div class="orders__gallery-img-box">
+                <img :src="product.image" :alt="product.imageAlt" />
+              </div>
+            </template>
+          </div>
+        </div>
+        <div class="orders__cart" x-data="orders">
+          <h4 class="capitalize mb-lg">or fill up this order form:</h4>
+          <form class="orders__form" @submit.prevent="submit">
+            <div class="orders__form-group mb-xl">
+              <label for="mobile" class="capitalize">mobile number:</label>
+              <input id="mobile" type="text" x-model="mobile" />
+            </div>
+            <h6 class="mb-xs capitalize">choose your order below</h6>
+            <template x-for="product in products" :key="product.slug">
+              <div class="orders__form-group--checkbox">
+                <input
+                  type="checkbox"
+                  :id="product.slug"
+                  :value="product.name"
+                  x-model="orderInput"
+                />
+                <label :for="product.slug" x-text="product.name"></label>
+              </div>
+
+              <button @click="submit">Place Order</button>
+            </template>
+            <button class="btn btn-submit" type="submit">place order</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <load src="../src/partials/footer.html" />
+    </footer>
+    <script type="module" src="../src/assets/js/main.js"></script>
+  </body>
+</html>

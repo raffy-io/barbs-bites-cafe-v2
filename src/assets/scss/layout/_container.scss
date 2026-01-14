@@ -6,4 +6,8 @@
     padding-left: var(--md);
     padding-right: var(--md);
   }
+  @include respond(phone) {
+    padding-left: var(--xs);
+    padding-right: var(--xs);
+  }
 }

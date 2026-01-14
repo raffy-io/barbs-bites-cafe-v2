@@ -1,5 +1,6 @@
 import "../scss/main.scss";
 import Alpine from "alpinejs";
+import Swal from "sweetalert2";
 import intersect from "@alpinejs/intersect";
 import homepage from "../../data/homepage.js";
 import products from "../../data/products.js";
@@ -64,6 +65,50 @@ document.addEventListener("alpine:init", () => {
 
       // 3. Mark as loaded to show UI
       this.loaded = true;
+    },
+  }));
+
+  Alpine.data("orders", () => ({
+    mobile: "",
+    orders: [],
+    orderInput: [],
+    submit() {
+      const phoneRegex = /^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]+\d$/;
+
+      if (!phoneRegex.test(this.mobile)) {
+        Swal.fire({
+          title: "Oops!",
+          text: "That doesn't look like a valid phone number.",
+          icon: "error",
+        });
+        return;
+      }
+      // 1. Move the current selections into the 'orders' history
+      // We use the spread operator [...] to create a copy
+      this.orders = [...this.orderInput];
+
+      if (this.orders.length === 0) {
+        Swal.fire({
+          title: "Ooops!",
+          text: "Please select at least one item!!",
+          icon: "warning",
+          confirmButtonText: "Ok",
+        });
+
+        return;
+      }
+
+      // 2. Alert the items (no need to split an array, just join it)
+      Swal.fire({
+        title: "Success!",
+        text: "You're order have been placed.Please wait for us to call you back.Thank you!!",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+
+      // 3. Optional: Clear the selection after ordering
+      this.orderInput = [];
+      this.mobile = "";
     },
   }));
 });

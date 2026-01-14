@@ -1,0 +1,126 @@
+@use "../abstracts/mixins" as *;
+.orders {
+  color: var(--text-black);
+  &__details {
+    height: 100%;
+    width: 100%;
+    padding: var(--md);
+
+    &-options {
+      p {
+        display: flex;
+        align-items: center;
+        gap: var(--md);
+      }
+    }
+  }
+
+  &-link-label {
+    font-weight: 700;
+    font-size: var(--sm);
+  }
+
+  &-link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      color: var(--text-black);
+      font-size: var(--sm);
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xs);
+
+    &-img-box {
+      height: 16rem;
+      width: 16rem;
+      overflow: hidden;
+
+      @include respond(phone) {
+        height: 10rem;
+        width: 10rem;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: var(--transition);
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  &__cart {
+    height: 100%;
+    width: 100%;
+    padding: var(--md);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &-group {
+      display: grid;
+      gap: var(--xs);
+
+      label {
+        font-size: var(--sm);
+        font-weight: 500;
+      }
+
+      input {
+        border: none;
+        background: none;
+        outline: none;
+        border: 2px solid transparent;
+        border-bottom: 2px solid var(--text-black);
+        padding-left: var(--xs);
+        padding-top: var(--xs);
+        padding-bottom: var(--xs);
+        width: 75%;
+
+        &:focus {
+          background-color: #f7f7f7;
+        }
+
+        &:focus:invalid {
+          border-bottom: 2px solid red;
+        }
+
+        &:focus:valid {
+          border-bottom: 2px solid green;
+        }
+      }
+    }
+
+    &-group--checkbox {
+      display: flex;
+      align-items: center;
+      gap: var(--sm);
+      margin-bottom: var(--xs);
+
+      label {
+        font-size: var(--sm);
+      }
+      input {
+        transition: var(--transition);
+
+        &:checked + label {
+          background-color: var(--color-tertiary);
+          color: var(--text-white);
+          padding-left: var(--xs);
+          padding-right: var(--xs);
+        }
+      }
+    }
+  }
+}

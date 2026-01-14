@@ -9,7 +9,6 @@
 }
 
 .products-grid {
-  // This says: Use 35rem if you can, but don't go wider than 100% of the screen
   grid-template-columns: repeat(3, 1fr);
   gap: var(--md);
 
@@ -17,6 +16,14 @@
     grid-template-columns: repeat(2, 1fr);
   }
   @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.orders-grid {
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond(tab-land) {
     grid-template-columns: 1fr;
   }
 }

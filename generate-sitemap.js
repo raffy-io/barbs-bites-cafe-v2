@@ -7,6 +7,7 @@ const PAGES = [
   { url: "/", priority: "1.0", changefreq: "daily" },
   { url: "/products/", priority: "0.8", changefreq: "weekly" },
   { url: "/product/", priority: "0.7", changefreq: "weekly" },
+  { url: "/order/", priority: "0.6", changefreq: "weekly" },
 ];
 
 const today = new Date().toISOString().split("T")[0];

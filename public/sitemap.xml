@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://barbs-bites-cafe-v2.netlify.app//</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://barbs-bites-cafe-v2.netlify.app//products/</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://barbs-bites-cafe-v2.netlify.app//product/</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://barbs-bites-cafe-v2.netlify.app//order/</loc>
+    <lastmod>2026-01-14</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
