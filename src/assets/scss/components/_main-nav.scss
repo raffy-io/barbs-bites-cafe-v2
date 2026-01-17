@@ -23,8 +23,12 @@
   z-index: 1000;
   transition: var(--transition);
 
+  @include respond(tab-land) {
+    padding-left: var(--md);
+    padding-right: var(--md);
+  }
+
   @include respond(phone) {
-    padding: var(--sm);
     display: none;
   }
 
