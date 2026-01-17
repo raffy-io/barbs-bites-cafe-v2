@@ -19,38 +19,44 @@
       <load src="../src/partials/mobile-nav.html" />
     </header>
     <main>
-      <section x-data="productDetail" class="container product">
+      <section x-data="productDetail" class="container">
         <div x-data="{ shown: false }" x-intersect="shown = true">
-          <div x-show="shown" x-transition.opacity.duration.1200ms>
-            <img :src="product.image" alt="product.imageAlt" class="mb-md" />
-            <h6 x-text="product.name" class="mb-sm"></h6>
-            <p x-text="product.description" class="mb-md"></p>
-            <!-- prices -->
-            <div class="product__prices mb-xl">
-              <template
-                x-for="[tier, price] in Object.entries(product.prices)"
-                :key="tier"
-              >
-                <template x-if="price > 0">
-                  <p class="capitalize">
-                    <span x-text="tier"></span>: &#x20B1;<span
-                      x-text="price"
-                    ></span>
-                  </p>
+          <div
+            class="product"
+            x-show="shown"
+            x-transition.opacity.duration.1200ms
+          >
+            <div class="product__description">
+              <h6 x-text="product.name" class="mb-sm"></h6>
+              <p x-text="product.description" class="mb-md"></p>
+              <!-- prices -->
+              <div class="product__prices mb-xl">
+                <template
+                  x-for="[tier, price] in Object.entries(product.prices)"
+                  :key="tier"
+                >
+                  <template x-if="price > 0">
+                    <p class="capitalize">
+                      <span x-text="tier"></span>: &#x20B1;<span
+                        x-text="price"
+                      ></span>
+                    </p>
+                  </template>
                 </template>
-              </template>
+              </div>
+              <!-- end prices -->
+              <!-- btn-links -->
+              <div class="product__btn">
+                <a href="/order/" class="product__btn--order capitalize"
+                  >order now</a
+                >
+                <a href="/products/" class="product__btn--back capitalize"
+                  >back</a
+                >
+              </div>
+              <!-- end btn-links -->
             </div>
-            <!-- end prices -->
-            <!-- btn-links -->
-            <div class="product__btn">
-              <a href="/products/" class="product__btn--back capitalize"
-                >back</a
-              >
-              <a href="/order/" class="product__btn--order capitalize"
-                >order now</a
-              >
-            </div>
-            <!-- end btn-links -->
+            <img :src="product.image" alt="product.imageAlt" class="mb-md" />
           </div>
         </div>
       </section>

@@ -10,9 +10,9 @@
 
 .products-grid {
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--md);
+  gap: var(--sm);
 
-  @include respond(tab-land) {
+  @include respond(tab-port) {
     grid-template-columns: repeat(2, 1fr);
   }
   @include respond(phone) {
@@ -25,5 +25,9 @@
 
   @include respond(tab-land) {
     grid-template-columns: 1fr;
+  }
+
+  @include respond(phone) {
+    row-gap: var(--8xl);
   }
 }

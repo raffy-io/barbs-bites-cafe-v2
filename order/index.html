@@ -77,11 +77,17 @@
         >
           <h4 class="capitalize mb-lg">or fill up this order form:</h4>
           <form class="orders__form" @submit.prevent="submit">
+            <h6 class="capitalize mb-xs">step:01</h6>
             <div class="orders__form-group mb-xl">
-              <label for="mobile" class="capitalize">mobile number:</label>
+              <label for="mobile" class="capitalize"
+                >enter your mobile number:</label
+              >
               <input id="mobile" type="text" x-model="mobile" />
             </div>
-            <h6 class="mb-xs capitalize">choose your order below</h6>
+            <h6 class="mb-xs capitalize">step:02</h6>
+            <p class="capitalize mb-xs font-semibold">
+              choose your order below:
+            </p>
             <template x-for="product in products" :key="product.slug">
               <div class="orders__form-group--checkbox">
                 <input

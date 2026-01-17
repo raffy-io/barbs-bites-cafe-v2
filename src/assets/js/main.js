@@ -89,7 +89,7 @@ document.addEventListener("alpine:init", () => {
 
       if (this.orders.length === 0) {
         Swal.fire({
-          title: "Ooops!",
+          title: "Oops!",
           text: "Please select at least one item!!",
           icon: "warning",
           confirmButtonText: "Ok",
