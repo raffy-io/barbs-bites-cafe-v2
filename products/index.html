@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
     </header>
     <main>
       <section
-        id="section-products"
+        id="section-products-full"
         class="container"
         x-data="paginate($store.products,3)"
       >
@@ -55,6 +55,41 @@
         </div>
 
         <load src="../src/partials/pagination-link.html" ref="results" />
+      </section>
+      <section
+        id="section-products-mobile"
+        class="container"
+        x-data="{products:$store.products}"
+      >
+        <div
+          x-data="{ shown: false}"
+          x-intersect="shown = true"
+          x-ref="results"
+        >
+          <h2
+            class="mb-md text-center capitalize title"
+            x-show="shown"
+            x-transition.opacity.duration.1200ms
+          >
+            our humble menu
+          </h2>
+          <div
+            class="grid place-items-center products-grid w-full h-full mb-lg"
+            x-show="shown"
+            x-transition.opacity.duration.1200ms
+          >
+            <template x-for="product in products" :key="product.slug">
+              <load
+                src="../src/partials/card.html"
+                name="product.name"
+                image="product.image"
+                imageAlt="product.imageAlt"
+                description="product.description"
+                slug="product.slug"
+              />
+            </template>
+          </div>
+        </div>
       </section>
     </main>
     <footer>

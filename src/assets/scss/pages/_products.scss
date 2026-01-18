@@ -1,0 +1,12 @@
+@use "../abstracts/mixins" as *;
+#section-products-full {
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+#section-products-mobile {
+  @include respond(phone-min) {
+    display: none;
+  }
+}
