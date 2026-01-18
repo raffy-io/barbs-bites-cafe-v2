@@ -101,7 +101,7 @@ document.addEventListener("alpine:init", () => {
       // 2. Alert the items (no need to split an array, just join it)
       Swal.fire({
         title: "Success!",
-        text: "You're order have been placed.Please wait for us to call you back.Thank you!!",
+        text: "Your order has been placed.Please wait for us to call you back.Thank you!!",
         icon: "success",
         confirmButtonText: "Ok",
       });
